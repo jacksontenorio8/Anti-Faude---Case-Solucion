@@ -1,20 +1,20 @@
-# 🛡️ Sistema Antifraude com Machine Learning
+# Sistema Antifraude com Machine Learning
 
 Este projeto desenvolve um sistema antifraude baseado em dados de transações financeiras. Inicialmente prototipado no **Google Colab**, foi posteriormente adaptado para execução **local**, com um servidor Flask expondo o modelo via API.
 
 ---
 
-## 🚧 Etapas do Projeto
+## Etapas do Projeto
 
-- 🔍 Exploração e pré-processamento de dados no Google Colab
-- 🧠 Treinamento e validação do modelo com Scikit-learn
-- 💾 Salvamento do modelo (`modelo_antifraude.pkl`)
-- 🌐 Deploy local com Flask usando `main.py` e ambiente virtual Python
-- 🛑 Criação do arquivo `.gitignore` com [Toptal Gitignore Generator](https://www.toptal.com/developers/gitignore)
+- Exploração e pré-processamento de dados no Google Colab
+- Treinamento e validação do modelo com Scikit-learn
+- Salvamento do modelo (`modelo_antifraude.pkl`)
+- Deploy local com Flask usando `main.py` e ambiente virtual Python
+- Criação do arquivo `.gitignore` com [Toptal Gitignore Generator](https://www.toptal.com/developers/gitignore)
 
 ---
 
-## 🧠 Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - Python 3.x
 - Pandas
@@ -26,7 +26,7 @@ Este projeto desenvolve um sistema antifraude baseado em dados de transações f
 
 ---
 
-## 🗂️ Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 Anti-Fraude---Case-Solucion/
@@ -40,7 +40,7 @@ Anti-Fraude---Case-Solucion/
 
 ---
 
-## ▶️ Como Executar Localmente
+## Como Executar Localmente
 
 ### 1. Crie um ambiente virtual
 
@@ -76,7 +76,7 @@ A aplicação estará disponível em `http://127.0.0.1:5000`.
 
 ---
 
-## 📡 Testando a API
+## Testando a API
 
 ### Endpoint de predição:
 
@@ -104,7 +104,7 @@ POST http://127.0.0.1:5000/predict
 
 ---
 
-## 📊 Desempenho do Modelo
+## Desempenho do Modelo
 
 Durante os testes, o modelo atingiu:
 
@@ -116,7 +116,7 @@ Esse valor indica um alto poder discriminativo nos dados usados. Para uso real, 
 
 ---
 
-## 📦 Observações
+## Observações
 
 - O modelo (`modelo_antifraude.pkl`) é gerado automaticamente se não existir.
 - O uso inicial foi no **Google Colab**, o que facilitou o protótipo antes de migrar para produção local.
@@ -125,6 +125,6 @@ Esse valor indica um alto poder discriminativo nos dados usados. Para uso real, 
 
 ---
 
-## 👨‍💻 Autor
+## Autor
 
-Desenvolvido por **Jackson Tenorio** – Projeto educacional de detecção de fraudes com machine learning.
+Desenvolvido por **Jackson Tenorio** – Projeto de detecção de fraudes com machine learning.
