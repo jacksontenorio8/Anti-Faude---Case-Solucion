@@ -32,8 +32,7 @@ Este projeto desenvolve um sistema antifraude baseado em dados de transações f
 Anti-Fraude---Case-Solucion/
 ├── transactional-sample.csv         # Base de dados de transações
 ├── main.py                          # Código principal com Flask
-├── modelo_antifraude.pkl            # Modelo salvo (gerado após treinamento)
-├── requirements.txt                 # Dependências do projeto
+├── modelo_antifraude.pkl            # Modelo salvo (gerado após treinamento)  
 ├── .gitignore                       # Gerado com https://www.toptal.com/developers/gitignore
 └── README.md                        # Este arquivo
 ```
