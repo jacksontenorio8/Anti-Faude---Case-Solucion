@@ -1,65 +1,130 @@
-# Sistema Antifraude com Machine Learning no Google Colab
+# 🛡️ Sistema Antifraude com Machine Learning
 
-Este projeto é um sistema antifraude baseado em transações financeiras, utilizando regras simples e modelos supervisionados de aprendizado de máquina. O projeto foi desenvolvido para ser compatível com o Google Colab e conta com funcionalidades completas, desde a importação dos dados até a exportação de modelo e criação de endpoint.
+Este projeto desenvolve um sistema antifraude baseado em dados de transações financeiras. Inicialmente prototipado no **Google Colab**, foi posteriormente adaptado para execução **local**, com um servidor Flask expondo o modelo via API.
 
-## Funcionalidades
+---
 
-- Montagem do Google Drive para acesso ao `.csv`
-- Carregamento de dados financeiros de transações
-- Tratamento de dados e engenharia de features
-- Aplicação de regras simples de fraude:
-  - Muitas transações em pouco tempo
-  - Transações com valores altos
-  - Histórico de estorno (chargeback)
-- Visualização de dados com gráficos
-- Criação de modelos supervisionados:
-  - RandomForest
-  - XGBoost
-  - LightGBM
-- Avaliação dos modelos com métricas como:
-  - Acurácia
-  - Matriz de Confusão
-  - Curva ROC e AUC
-- Exportação do modelo `.pkl`
-- Criação de um endpoint RESTful usando Flask (nota: parte do Flask deve ser executada localmente, pois o Colab não permite execução contínua de servidores)
+## 🚧 Etapas do Projeto
 
-## Como Usar
+- 🔍 Exploração e pré-processamento de dados no Google Colab
+- 🧠 Treinamento e validação do modelo com Scikit-learn
+- 💾 Salvamento do modelo (`modelo_antifraude.pkl`)
+- 🌐 Deploy local com Flask usando `main.py` e ambiente virtual Python
+- 🛑 Criação do arquivo `.gitignore` com [Toptal Gitignore Generator](https://www.toptal.com/developers/gitignore)
 
-1. Faça upload do seu arquivo CSV no Google Drive.
-2. Monte seu Google Drive no Colab com:
-   ```python
-   from google.colab import drive
-   drive.mount('/content/drive')
-   ```
-3. Atualize o caminho do arquivo CSV no notebook:
-   ```python
-   df = pd.read_csv('/content/drive/MyDrive/seu_arquivo.csv')
-   ```
-4. Execute o notebook célula por célula.
-5. O modelo será exportado como `modelo_fraude.pkl` no seu diretório `/content`.
+---
 
-## Requisitos
+## 🧠 Tecnologias Utilizadas
 
-- Google Colab
 - Python 3.x
-- Bibliotecas:
-  - pandas
-  - numpy
-  - matplotlib
-  - seaborn
-  - scikit-learn
-  - xgboost
-  - lightgbm
-  - joblib
-  - flask (para uso local)
+- Pandas
+- Scikit-learn
+- Flask
+- Pickle
+- Google Colab
+- Ambiente virtual Python (venv)
 
-## Observações
+---
 
-- A parte final do código, referente à criação do endpoint com Flask, deve ser executada fora do Google Colab, em ambiente local (como Jupyter Notebook ou terminal Python).
-- A execução de servidores RESTful não é suportada diretamente pelo Colab.
+## 🗂️ Estrutura do Projeto
 
-## Licença
+```
+Anti-Fraude---Case-Solucion/
+├── transactional-sample.csv         # Base de dados de transações
+├── main.py                          # Código principal com Flask
+├── modelo_antifraude.pkl            # Modelo salvo (gerado após treinamento)
+├── requirements.txt                 # Dependências do projeto
+├── .gitignore                       # Gerado com https://www.toptal.com/developers/gitignore
+└── README.md                        # Este arquivo
+```
 
-Este projeto está licenciado sob a Licença MIT.
-Você é livre para usá-lo, modificá-lo e distribuí-lo com os devidos créditos.
+---
 
+## ▶️ Como Executar Localmente
+
+### 1. Crie um ambiente virtual
+
+```bash
+python -m venv .venv
+```
+
+### 2. Ative o ambiente
+
+**Windows:**
+```powershell
+.venv\Scripts\Activate.ps1
+```
+
+**Linux/Mac:**
+```bash
+source .venv/bin/activate
+```
+
+### 3. Instale as dependências
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Execute o servidor Flask
+
+```bash
+python main.py
+```
+
+A aplicação estará disponível em `http://127.0.0.1:5000`.
+
+---
+
+## 📡 Testando a API
+
+### Endpoint de predição:
+
+```
+POST http://127.0.0.1:5000/predict
+```
+
+### Exemplo de JSON de entrada:
+
+```json
+{
+  "transaction_amount": 100.0,
+  "user_id": 1234,
+  "transaction_type": "credit"
+}
+```
+
+### Resposta esperada:
+
+```json
+{
+  "is_fraud": false
+}
+```
+
+---
+
+## 📊 Desempenho do Modelo
+
+Durante os testes, o modelo atingiu:
+
+```
+ROC AUC Score: 1.0
+```
+
+Esse valor indica um alto poder discriminativo nos dados usados. Para uso real, recomenda-se testes com bases externas para validação mais robusta.
+
+---
+
+## 📦 Observações
+
+- O modelo (`modelo_antifraude.pkl`) é gerado automaticamente se não existir.
+- O uso inicial foi no **Google Colab**, o que facilitou o protótipo antes de migrar para produção local.
+- O arquivo `.py` (`main.py`) foi criado para permitir execução com Flask fora do Colab.
+- O `.gitignore` foi gerado usando o [Toptal Gitignore Generator](https://www.toptal.com/developers/gitignore) para evitar versionamento de arquivos como `.venv`, `.pkl`, entre outros.
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por **Jackson Tenorio** – Projeto educacional de detecção de fraudes com machine learning.
