@@ -60,4 +60,6 @@ Este projeto é um sistema antifraude baseado em transações financeiras, utili
 
 ## Licença
 
-Projeto educacional de demonstração. Livre para uso com atribuição.
+Este projeto está licenciado sob a Licença MIT.
+Você é livre para usá-lo, modificá-lo e distribuí-lo com os devidos créditos.
+
